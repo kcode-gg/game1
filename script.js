@@ -1,15 +1,17 @@
 
 
 
+//Player Input 
+let playerSelection = prompt("Please choose one of the following: Rock, Scissor, Paper");
 
-    let playerSelection = prompt("Please choose one of the following: Rock, Scissor, Paper");
 
-    while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissor"){
+// Check for player input and repeat prompt if not given one of the options
+while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissor"){
         playerSelection = prompt("Please choose one of the following: Rock, Scissor, Paper");
     }
 
 
-//Player Input 
+
  alert("Good Luck!")
 
 //convert input to lowercase so it matches the computer choice in casing
@@ -48,7 +50,7 @@ function oneRound (strOutput, playerSelection){
     } else if (strOutput === "rock" && playerSelection === "paper"){
         alert(`Congratulations! ${playerSelection} beats ${strOutput}!`);
     } else if (strOutput === "scissor" && playerSelection === "rock"){
-        alert(`Congratulations! ${playerSelection} beats ${strOutput!}`);
+        alert(`Congratulations! ${playerSelection} beats ${strOutput}!`);
     } else if (strOutput === "paper" && playerSelection === "scissor"){
         alert(`Congratulations! ${playerSelection} beats ${strOutput}!`);
     } else {
