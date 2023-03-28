@@ -97,18 +97,19 @@ function game(){
     oneRound(strOutput, playerSelection);
     console.log(computerScore);
     console.log(playerScore);
-    alert(`Your score: ${playerScore} \n Computer score: ${computerScore}`);
+    //alert(`Round: ${i} \n Your score: ${playerScore} \n Computer score: ${computerScore}`);
 }
 
 for (let i = 0; i < 5; i++){
     game();
+    alert(`Round: ${i + 1} \nYour score: ${playerScore} \nComputer score: ${computerScore}`);
    
 }
 
 if (computerScore > playerScore){
     alert("You lost vs a computer LOL! \n \n Refresh to play again.");
 } else if (computerScore < playerScore){
-    alert("You won! Congratulations you're the GOAT! \n \n Refresh to play again.")
+    alert("You won! Congratulations you're the GOAT!\n \nRefresh to play again.")
 } else {
-    alert("It's a tie. \n \n Refresh to play again.")
+    alert("It's a tie. \n \nRefresh to play again.")
 }
