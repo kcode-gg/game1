@@ -1,24 +1,11 @@
-
-
-
 //Player Input 
 let playerSelection; //prompt("Please choose one of the following: Rock, Scissor, Paper");
-
-
 // Check for player input and repeat prompt if not given one of the options
 //while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissor"){
 //        playerSelection = prompt("Please choose one of the following: Rock, Scissor, Paper");
 //    }
-
-
-
-
-
 //convert input to lowercase so it matches the computer choice in casing
 //playerSelection = playerSelection.toLowerCase();
-
-
-
 
 let strOutput;
 //Computer gets a random number which is converted to a string which will be used as the computers choice
@@ -40,6 +27,39 @@ function getComputerChoice(){
 }
 
 
+
+
+
+
+const rock = document.getElementById("rock");
+rock.addEventListener("click", choseRock);
+
+const paper = document.getElementById("paper");
+paper.addEventListener("click", chosePaper);
+
+const scissors = document.getElementById("scissors");
+scissors.addEventListener("click", choseScissors);
+
+
+
+
+function choseRock() {
+    playerSelection = "rock";
+    game();
+}
+
+function chosePaper() {
+    playerSelection = "paper";
+    game();
+}
+
+function choseScissors() {
+    playerSelection = "scissor";
+    game();
+}
+
+
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -47,69 +67,86 @@ let computerScore = 0;
 //one Game Round - still unsure with parameters / arguments of functions
 function oneRound (strOutput, playerSelection){
     if (strOutput === "rock" && playerSelection === "scissor"){
-        alert(`You Lost. ${strOutput} beats ${playerSelection}!`);
+        document.getElementById("statusRound").innerHTML = `You Lost. Rock beats Scissors!`;
         computerScore++;
     } else if (strOutput === "scissor" && playerSelection === "paper"){
-        alert(`You Lost. ${strOutput} beats ${playerSelection}!`);
+        document.getElementById("statusRound").innerHTML = `You Lost. Scissors beats Paper!`;
         computerScore++;
     } else if (strOutput === "paper" && playerSelection === "rock"){
-        alert(`You Lost. ${strOutput} beats ${playerSelection}!`);
+        document.getElementById("statusRound").innerHTML = `You Lost. Paper beats Rock!`;
         computerScore++;
     } else if (strOutput === "rock" && playerSelection === "paper"){
-        alert(`Congratulations! ${playerSelection} beats ${strOutput}!`);
-       playerScore++;
+        document.getElementById("statusRound").innerHTML = `Congratulations! Paper beats Rock!`;
+        playerScore++;
     } else if (strOutput === "scissor" && playerSelection === "rock"){
-        alert(`Congratulations! ${playerSelection} beats ${strOutput}!`);
+        document.getElementById("statusRound").innerHTML = `Congratulations! Rock beats Scissors!`;
         playerScore++;
     } else if (strOutput === "paper" && playerSelection === "scissor"){
-        alert(`Congratulations! ${playerSelection} beats ${strOutput}!`);
+        document.getElementById("statusRound").innerHTML = `Congratulations! Scissors beats Paper!`;
         playerScore++;
     } else {
-        alert(`It's a draw. You both chose ${playerSelection}!`)
+        document.getElementById("statusRound").innerHTML = `It's a draw. You both chose ${playerSelection}!`;
+    }     
     }
-        
-   
-    
-   
-    }
-   
-    
-
-//game();
-//getComputerChoice();
-//oneRound(strOutput, playerSelection);
-//console.log(strOutput);
 
 function game(){
     getComputerChoice();
-    
-    playerSelection = prompt("Please choose one of the following: Rock, Scissor, Paper");
-
-    // Check for player input and repeat prompt if not given one of the options
-    while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissor"){
-        playerSelection = prompt("Please choose one of the following: Rock, Scissor, Paper");
-    }
-
-    //convert input to lowercase so it matches the computer choice in casing
-    playerSelection = playerSelection.toLowerCase();
-   
-    //calling one round with computer and play selection
     oneRound(strOutput, playerSelection);
-    console.log(computerScore);
-    console.log(playerScore);
-    //alert(`Round: ${i} \n Your score: ${playerScore} \n Computer score: ${computerScore}`);
+    document.getElementById("playerScore").innerHTML = playerScore;
+    document.getElementById("computerScore").innerHTML = computerScore;
+    if (playerScore >= 5){
+        document.getElementById("statusRound").innerHTML = "You won the Game!";
+        document.getElementById("endText").innerHTML = "Congratulations you're the GOAT! Refresh to play again.";
+        // const btn = document.createElement("button");
+        // btn.innerText = "Play Again";
+        // document.querySelector(".descriptioncont").appendChild(btn);
+        // btn.classList.add("btnEffect", "btnShapeEffect", "m1");
+      
+
+    } else if (computerScore >= 5) {
+        document.getElementById("statusRound").innerHTML = "You lost the Game!";
+        document.getElementById("endText").innerHTML = "Refresh to play again.";
+    //     const btn = document.createElement("button");
+    //     btn.innerText = "Play Again";
+    //     document.querySelector(".descriptioncont").appendChild(btn);
+    //     btn.classList.add("btnEffect", "btnShapeEffect", "m1");
+    };
 }
 
-for (let i = 0; i < 5; i++){
-    game();
-    alert(`Round: ${i + 1} \nYour score: ${playerScore} \nComputer score: ${computerScore}`);
-   
-}
 
-if (computerScore > playerScore){
-    alert("You lost vs a computer LOL! \n \n Refresh to play again.");
-} else if (computerScore < playerScore){
-    alert("You won! Congratulations you're the GOAT!\n \nRefresh to play again.")
-} else {
-    alert("It's a tie. \n \nRefresh to play again.")
-}
+
+//Overlay function with winner or loser message
+function showOverlay(message) {
+    const overlay = document.getElementById('overlay');
+    const overlayText = document.getElementById('overlay-text');
+    overlayText.innerText = message;
+    overlay.style.display = 'block';
+  }
+
+
+// resets the scores and removes overlay
+  function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    document.getElementById('playerScore').innerHTML = playerScore;
+    document.getElementById('computerScore').innerHTML = computerScore;
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+//adds an event listener to the play again button which calls resetGame();
+  const playAgainButton = document.getElementById('play-again');
+  playAgainButton.addEventListener('click', resetGame);
+
+
+//game function
+  function game() {
+    getComputerChoice();
+    oneRound(strOutput, playerSelection);
+    document.getElementById('playerScore').innerHTML = playerScore;
+    document.getElementById('computerScore').innerHTML = computerScore;
+    if (playerScore === 5) {
+      showOverlay("You won the Game! Congratulations you're the GOAT!");
+    } else if (computerScore === 5) {
+      showOverlay("You lost the Game! Maybe next time.");
+    }
+  }

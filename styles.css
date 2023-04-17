@@ -1,0 +1,203 @@
+@font-face {
+    font-family: 'MarioWorld';
+    src: url(./fonts/Super-Mario-World.ttf) format('truetype');
+}
+
+body {
+    margin: 0;
+    background-color: rgb(36, 43, 61);
+}
+
+.headercont {
+    display: flex;
+    justify-content: center;
+   align-items: center;
+    height: 80px;
+    color: rgb(255, 142, 21);
+    background-color: rgb(14, 31, 45);
+    padding-top: 8px;
+  
+   
+   
+    
+  
+}
+
+.header {
+   font-family: 'MarioWorld', sans-serif;
+   font-size: 32px;
+}
+
+.heading {
+    font-family: 'roboto', sans-serif;
+    font-size: 36px;
+    color: rgb(223, 223, 223);
+
+}
+
+.description {
+    font-family: 'roboto', sans-serif;
+    color: rgb(223, 223, 223);
+}
+
+.descriptioncont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 120px;
+    margin-bottom: 32px;
+    margin-top: 48px;
+  
+  
+}
+
+.scoretainer {
+display: flex;
+
+justify-content: center;
+gap: 64px;
+margin-bottom: 78px;
+
+}
+
+.scoresubtainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: rgb(187, 187, 187) solid 2px;
+    height: 90px;
+    width: 10em;
+    font-family: 'roboto', sans-serif;
+    font-size: 22px;
+    color: rgb(223, 223, 223);
+
+}
+
+#playerScore {
+    font-size: 32px;
+    margin-bottom: -4px;
+}
+
+#computerScore {
+    font-size: 32px;
+    margin-bottom: -4px;
+}
+
+.centerImages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.containerButtons {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 106px;
+}
+  
+ 
+   .btnShapeEffect {
+       color: #fff;
+       background-color: rgba(37, 37, 62, 0.159);
+       box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+       cursor: pointer;
+       font-size: 16px;
+       font-weight: 400;
+       line-height: 45px;
+       margin: 0 0 2em;
+       max-width: 180px;
+       height: 180px;
+       position: relative;
+       text-decoration: none;
+       text-transform: uppercase;
+       width: 100%;
+  }
+  
+   .btnEffect {
+       border: 0 solid;
+       box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+       outline: 1px solid;
+       outline-color: rgba(255, 255, 255, .5);
+       outline-offset: 0px;
+       text-shadow: none;
+       border-radius: 4px;
+       transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+   .btnEffect:hover {
+       border: 1px solid;
+       box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+       outline-color: rgba(255, 255, 255, 0);
+       outline-offset: 15px;
+       text-shadow: 1px 1px 2px #427388;
+  }
+   
+
+.m1{
+
+    margin-top: 16px;
+
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    text-align: center;
+  }
+  .overlay-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+#overlay-text {
+    font-family: 'roboto', sans-serif;
+    font-size: 36px;
+    color: rgb(223, 223, 223);
+}
+
+.btnShapeEffectOverlay {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.726);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 45px;
+    margin: 0 0 2em;
+    max-width: 180px;
+    height: 90px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.btnEffectOverlay {
+    border: 0 solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    outline: 1px solid;
+    outline-color: rgba(255, 255, 255, .5);
+    outline-offset: 0px;
+    text-shadow: none;
+    border-radius: 4px;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btnEffectOverlay:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+}

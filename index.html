@@ -5,9 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylestheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+
+<div class="headercont">
+    <div class="header">ROCK PAPER SCISSORS</div>
+</div>
+
+
+<div class="descriptioncont">
+    
+    <div id="statusRound" class="heading">Choose your weapon</div>
+    <div id="endText" class="heading"></div>
+    <div class="description">First to score 5 points wins the game!</div>
+
+</div>
+
+
+
+<div class="scoretainer">
+    <div class="scoresubtainer">
+        <div id="playerScore">0</div>
+        <div class="playerText">Player</div>
+    </div>
+
+    <div class="scoresubtainer">
+        <div id="computerScore">0</div>
+        <div class="playerText">Computer</div>
+    </div>
+
+</div>
+
+
+
+<div class="containerButtons">
+    <button id="rock" class="btnShapeEffect btnEffect centerImages"><img src="./img/stone.png" width="150px" height="150px"></button> 
+    <button id="paper" class="btnShapeEffect btnEffect centerImages"><img src="./img/paper.svg" width="150px" height="150px"></button> 
+    <button id="scissors" class="btnShapeEffect btnEffect centerImages"><img src="./img/scissors.svg" width="140px" height="140px"></button> 
+  </div>
+
+
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <h2 id="overlay-text"></h2>
+      <button id="play-again" class="btnEffectOverlay btnShapeEffectOverlay">Play Again</button>
+    </div>
+  </div>
+
+
+
     <script src="./script.js"></script>
 </body>
 </html>
